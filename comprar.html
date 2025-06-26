@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videojuegos Cool - Comprar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Videojuegos Cool</h1>
+    <h2>¡Bienvenido a la mejor experiencia gamer!</h2>
+    <nav>
+      <ul>
+        <li><a href="videojuegos.html">Videojuegos</a></li>
+        <li><a href="comprar.html">Comprar</a></li>
+        <li><a href="objetivos.html">Objetivos</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="proceso-compra">
+      <h3>¿Cómo Comprar un Videojuego?</h3>
+      <ol class="proceso-lista">
+        <li>Elige tu videojuego favorito de la lista.</li>
+        <li>Completa el formulario con tu nombre de usuario, correo electrónico y dirección de envío.</li>
+        <li>Haz clic en "Comprar" para enviar tu solicitud.</li>
+        <li>Recibirás un correo de confirmación con los detalles de tu compra.</li>
+      </ol>
+      <form id="form-compra">
+        <input type="text" id="usuario" placeholder="Nombre de usuario" required>
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <select id="juego" required>
+          <option value="">Selecciona un videojuego</option>
+          <option value="galaxy">Galaxy Quest</option>
+          <option value="racing">Racing Thunder</option>
+          <option value="mystic">Mystic Realms</option>
+        </select>
+        <input type="text" id="direccion" placeholder="Dirección de envío" required>
+        <button type="submit">Comprar</button>
+      </form>
+      <div id="mensaje-compra"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Videojuegos Cool. Todos los derechos reservados.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html> 

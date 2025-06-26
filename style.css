@@ -1,0 +1,364 @@
+/* Fuentes y colores base */
+:root {
+  --color-bg: #181a20;
+  --color-bg-2: #23263a;
+  --color-primary: #00ffe7;
+  --color-secondary: #ff00c8;
+  --color-accent: #ffea00;
+  --color-text: #f3f3f3;
+  --color-card: #23263aee;
+  --shadow-neon: 0 0 16px var(--color-primary), 0 0 32px var(--color-secondary);
+  --font-title: 'Orbitron', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-bg-2);
+  padding: 0.5rem 2rem;
+  box-shadow: 0 2px 16px #000a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  text-shadow: 0 0 8px var(--color-primary);
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.navbar a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.2s;
+}
+.navbar a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+.navbar a:hover {
+  color: var(--color-primary);
+}
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.hero-section {
+  background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 32px #000a;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #181a20cc 60%, #23263acc 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-text);
+}
+.hero-content h1 {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-shadow: var(--shadow-neon);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  animation: fadeInDown 1s;
+}
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 2px 8px #000a;
+  animation: fadeInUp 1.2s;
+}
+.cta-btn {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: #181a20;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: 40px;
+  box-shadow: var(--shadow-neon);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  animation: fadeIn 1.5s;
+}
+.cta-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 32px var(--color-accent);
+}
+
+.juegos-destacados {
+  padding: 4rem 2rem 2rem 2rem;
+  background: var(--color-bg-2);
+  text-align: center;
+}
+.juegos-destacados h2 {
+  font-family: var(--font-title);
+  color: var(--color-accent);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 12px var(--color-accent);
+}
+.juegos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.juego-card {
+  background: var(--color-card);
+  border-radius: 18px;
+  box-shadow: 0 0 24px #000a, 0 0 8px var(--color-primary);
+  padding: 2rem 1.2rem 1.5rem 1.2rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  animation: fadeInUp 1s;
+}
+.juego-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 16px var(--color-secondary);
+  transition: transform 0.3s;
+}
+.juego-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 0 32px var(--color-primary), 0 0 64px var(--color-secondary);
+}
+.juego-card:hover img {
+  transform: scale(1.08) rotate(-2deg);
+}
+.juego-card h3 {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin: 0.5rem 0 0.7rem 0;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px var(--color-primary);
+}
+.juego-card p {
+  color: #e0e0e0;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+.info-btn {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  color: #181a20;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 8px var(--color-secondary);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.info-btn:hover {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  box-shadow: 0 0 24px var(--color-accent);
+}
+
+.noticias-section {
+  background: var(--color-bg);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.noticias-section h2 {
+  font-family: var(--font-title);
+  color: var(--color-secondary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 8px var(--color-secondary);
+}
+.noticias-placeholder {
+  color: #aaa;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.contacto-section {
+  background: var(--color-bg-2);
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+}
+.contacto-section h2 {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 8px var(--color-primary);
+}
+#form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#form-contacto input, #form-contacto textarea {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: #23263a;
+  color: var(--color-text);
+  box-shadow: 0 0 8px #000a;
+  resize: none;
+}
+#form-contacto button {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: #181a20;
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 8px var(--color-primary);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+#form-contacto button:hover {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  box-shadow: 0 0 24px var(--color-accent);
+}
+#mensaje-enviado {
+  margin-top: 1rem;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+footer {
+  background: #181a20;
+  color: #aaa;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 -2px 16px #000a;
+}
+.footer-social {
+  margin-bottom: 1rem;
+}
+.footer-social a {
+  margin: 0 0.7rem;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 8px var(--color-secondary));
+  transition: filter 0.2s;
+}
+.footer-social a:hover {
+  transform: scale(1.2) rotate(-8deg);
+}
+.footer-social a:hover img {
+  filter: drop-shadow(0 0 16px var(--color-accent));
+}
+.footer-info {
+  font-size: 0.95rem;
+  color: #888;
+}
+.footer-info a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  margin: 0 0.5rem;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .juegos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .juego-card {
+    width: 90vw;
+    max-width: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  .logo span {
+    font-size: 1.1rem;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .juegos-destacados h2, .noticias-section h2, .contacto-section h2 {
+    font-size: 1.3rem;
+  }
+  .juego-card {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+}
